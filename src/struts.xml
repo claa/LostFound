@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="hello" namespace="/" extends="struts-default">
+     <interceptors>
+            <interceptor name="login" class="nuc.test.Interceptor.loginInterceptor"></interceptor>
+     </interceptors>
+       <action name="InfoAction" class="nuc.test.Action.InfoAction" method="foundInfo">
+             <result name="foundOk">/success.jsp</result>
+              <result name="error">/found.jsp</result>
+             <result name="input">/found.jsp</result>
+             <result name="login">/nologin.jsp</result>
+             <interceptor-ref name="defaultStack"/>
+             <interceptor-ref name="login"/>
+       </action>
+       
+         <action name="LostAction" class="nuc.test.Action.InfoAction" method="lostInfo">
+             <result name="lostOk">/success.jsp</result>
+              <result name="error">/lost.jsp</result>
+             <result name="input">/lost.jsp</result>
+             <result name="login">/nologin.jsp</result>
+             <interceptor-ref name="defaultStack"/>
+             <interceptor-ref name="login"/>
+       </action>
+       
+         <action name="AnimalAction" class="nuc.test.Action.InfoAction" method="animalInfo">
+             <result name="animalOk">/success.jsp</result>
+              <result name="error">/animal.jsp</result>
+             <result name="input">/animal.jsp</result>
+             <result name="login">/nologin.jsp</result>
+             <interceptor-ref name="defaultStack"/>
+             <interceptor-ref name="login"/>
+       </action>
+       
+        <action name="queryAction" class="nuc.test.Action.queryAction" method="queryFound">
+             <result name="queryOk">/queryOk.jsp</result>
+              <result name="queryFail">/queryFail.jsp</result>
+       </action>
+       
+        <action name="loginAction" class="nuc.test.Action.loginAction" method="loginMethod">
+             <result name="loginOk">/second.jsp</result>
+              <result name="loginFail">/loginFail.jsp</result>
+       </action>
+       
+        <action name="registerAction" class="nuc.test.Action.registerAction" method="registerMethod">
+             <result name="registerOk">/registerOk.jsp</result>
+              <result name="registerFail">/register.jsp</result>
+               <result name="input">/register.jsp</result>
+       </action>
+    </package>
+    
+</struts>
